@@ -45,7 +45,10 @@ function callOper(x, y, oper) {
 }
 
 function add(x, y) {
-	return x + y;
+	if (Number.isInteger(x + y) == false)
+		return (x + y).toFixed(2);
+	else
+		return x + y;
 }
 
 function subtract(x, y) {
@@ -53,7 +56,10 @@ function subtract(x, y) {
 }
 
 function multiply(x, y) {
-	return x * y;
+	if (Number.isInteger(x * y) == false)
+		return (x * y).toFixed(2);
+	else
+		return x * y;
 }
 
 function divide(x, y) {
@@ -70,10 +76,10 @@ function operate(s) { // SHUNTING YARD ALGORITHM
 	let res = 0;
 	
 	for (let i = 0; i < s.length; i++) {
-		if ((s[i] >= 0 && s[i] <= 9) || (s[i] == "-" && Number(s[i - 1]) != s[i - 1])) {
+		if ((s[i] >= 0 && s[i] <= 9) || (s[i] == "-" && Number(s[i - 1]) != s[i - 1]) || s[i] == ".") {
 			spoji = "";
 			
-			while ((s[i] >= 0 && s[i] <= 9) || (s[i] == "-" && Number(s[i - 1]) != s[i - 1])) {
+			while ((s[i] >= 0 && s[i] <= 9) || (s[i] == "-" && Number(s[i - 1]) != s[i - 1]) || s[i] == ".") {
 				spoji += s[i]
 				i++;
 			}
@@ -104,21 +110,19 @@ function operate(s) { // SHUNTING YARD ALGORITHM
 	while(stack.length)
 		queue.push(stack.pop());
 	
-	//console.table(queue);
 	
 	for (let i = 0; i < queue.length; i++) {
 		if (Number(queue[i]) != queue[i]) {
 			oper = queue[i];
 			a = queue[i - 2];
 			b = queue[i - 1];
-			res = callOper(a, b, oper);
+			res = Number(callOper(a, b, oper));
 			queue[i - 2] = res;
 			queue.splice(i - 1, 2);
 			i = 0;
 		}
 	}
 	
-	//console.table(queue);
 	textArea.textContent = queue;
 	
 }
@@ -161,6 +165,7 @@ function addValue(e) {
 			else if (e.target.textContent != "(") {
 				textArea.textContent += inputArea;
 			}
+
 		}
 	}
 
@@ -169,7 +174,10 @@ function addValue(e) {
 			textArea.textContent = "";
 		}
 		
-		textArea.textContent += inputArea;
+		if (s.length < 20) {
+			textArea.textContent += inputArea;
+		}
 	}
+	
 	
 }

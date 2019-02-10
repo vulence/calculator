@@ -2,7 +2,15 @@ html {
 	background-image: url(../images/background.jpg);
 	background-repeat: no-repeat;
 	background-size: cover;
+	height: 100%;
 	font-family: Palantino, sans-serif;
+}
+
+body {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	height: 100%;
 }
 
 #container {
@@ -10,9 +18,8 @@ html {
 	background-color: white;
 	display: flex;
 	flex-direction: column;
-	margin: 0 auto;
-	margin-top: 190px;
-	width: 20%;
+	min-width: 25%;
+	max-width: 40%;
 	height: 530px;
 	border: 2px solid black;
 	border-radius: 15px;
@@ -71,4 +78,22 @@ html {
 	font-size: 30pt;
 	max-width: 100%;
 	margin: 0 10px;
+}
+
+@media only screen and (max-width: 1100px) {
+	#container {
+		width: 100%;
+		height: 100%;
+		font-size: 80pt;
+	}
+	
+	#buttons {
+		height: 70%;
+	}
+	
+	#data {
+		width: 100%;
+		height: 30%;
+	}
+	
 }
