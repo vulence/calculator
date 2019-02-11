@@ -1,1 +1,1 @@
-A calculator completely made in HTML, CSS and JS. Math expression parsing done with shunting-yard algorithm implementation.
+A calculator completely made in HTML, CSS and JS. Math expression parsing done with shunting-yard algorithm implementation. Mobile and keyboard support.

@@ -1,5 +1,6 @@
 let inputs = document.querySelectorAll("#buttons");
 let textArea = document.querySelector("#numbers");
+let key = window.addEventListener("keypress", whatKey);
 textArea.textContent = "0";
 
 inputs.forEach(input => input.addEventListener("click", addValue));
@@ -178,6 +179,47 @@ function addValue(e) {
 			textArea.textContent += inputArea;
 		}
 	}
+}
+
+function whatKey(e) { /* keyboard support */
+	let value = e.key;
 	
-	
+	if (value == "1")
+		document.getElementById("1").click();
+	else if (value == "2")
+		document.getElementById("2").click();
+	else if (value == "3")
+		document.getElementById("3").click();
+	else if (value == "4")
+		document.getElementById("4").click();
+	else if (value == "5")
+		document.getElementById("5").click();
+	else if (value == "6")
+		document.getElementById("6").click();
+	else if (value == "7")
+		document.getElementById("7").click();
+	else if (value == "8")
+		document.getElementById("8").click();
+	else if (value == "9")
+		document.getElementById("9").click();
+	else if (value == "0")
+		document.getElementById("0").click();
+	else if (value == "Enter")
+		document.getElementById("jednako").click();
+	else if (value == "+")
+		document.getElementById("plus").click();
+	else if (value == "-")
+		document.getElementById("minus").click();
+	else if (value == "*")
+		document.getElementById("puta").click();
+	else if (value == ".")
+		document.getElementById("dec").click();
+	else if (value == "/")
+		document.getElementById("podeljeno").click();
+	else if (value == "(")
+		document.getElementById("otvorenaZag").click();
+	else if (value == ")")
+		document.getElementById("zatvorenaZag").click();
+	else if (value == "c")
+		document.getElementById("C").click();
 }
